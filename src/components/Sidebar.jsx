@@ -15,16 +15,16 @@ const links = [
   { name: "Calculator", path: "/calculator", icon: Calculator },
   { name: "Todo", path: "/todolist", icon: CheckSquare },
   { name: "Typing Test", path: "/typing-test", icon: Keyboard },
-  { name: "Stopwatch", path: "/stopwatch", icon: Timer },
+
 //   { name: "Notes", path: "/notes", icon: NotebookPen },
 //   { name: "Password Generator", path: "/password-generator", icon: LockKeyhole },
 ];
 
-export default function Sidebar() {
+export default function Sidebar(props) {
   return (
-    <aside className="fixed left-0 top-0 h-screen w-64 border-r border-gray-200 bg-white">
-      <div className="border-b p-4">
-        <h1 className="text-2xl font-bold">PocketApps</h1>
+    <aside className={`fixed left-0 top-0 h-screen w-64 border-r border-gray-200 ${props.currentTheme.bg}`}>
+      <div className={`border-b ${props.currentTheme.border} p-4`}>
+        <h1 className={`text-2xl font-bold ${props.currentTheme.text}`}>PocketApps</h1>
         {/* <p className="text-sm text-gray-500">
           Everyday tools in one place
         </p> */}
@@ -38,7 +38,7 @@ export default function Sidebar() {
             className={({ isActive }) =>
               `flex items-center gap-3 rounded-lg px-4 py-3 transition ${
                 isActive
-                  ? "bg-black text-white"
+                  ? "bg-black text-white  "
                   : "text-gray-700 hover:bg-gray-100"
               }`
             }

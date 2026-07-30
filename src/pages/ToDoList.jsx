@@ -39,7 +39,7 @@ function ToDoList(props) {
 
 
         <div className={`min-h-screen `}>
-            <Sidebar />
+            <Sidebar theme={props.theme} currentTheme={props.currentTheme} dark={props.dark} setDark={props.setDark}/>
             <div className="ml-64">
                 <Header theme={props.theme} currentTheme={props.currentTheme} dark={props.dark} setDark={props.setDark} />
                 <main className={`p-8 flex justify-center items-center h-screen flex-col gap-4 ${props.currentTheme.bg} ` }>
@@ -54,7 +54,7 @@ function ToDoList(props) {
                                     onChange={(e) => setInput(e.target.value)}
                                     onKeyDown={(e) => e.key === "Enter" && addTodo()}
                                     placeholder="Add a new task..."
-                                    className="border border-gray-300 rounded-lg px-4 py-2 text-sm outline-none focus:border-blue-400 w-64"
+                                    className={`border border-gray-300 rounded-lg px-4 py-2 text-sm ${props.currentTheme.text} outline-none focus:border-blue-400 w-64`}
                                 />
                                 <button
                                     onClick={addTodo}
@@ -72,7 +72,7 @@ function ToDoList(props) {
                                 {todos.map(todo => (
                                     <li
                                         key={todo.id}
-                                        className={`flex items-center justify-between ${props.currentTheme.bg} ${props.currentTheme.border} rounded-xl px-4 py-3 shadow-sm`}
+                                        className={`flex items-center justify-between ${props.currentTheme.bg} ${props.currentTheme.shadow} rounded-xl px-4 py-3 shadow-sm`}
                                     >
                                         <div className="flex items-center gap-3 overflow-hidden">
                                             <input

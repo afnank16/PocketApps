@@ -3,15 +3,15 @@ import { Bell, Moon, Search } from "lucide-react";
 export default function Header(props) {
   console.log(props)
   return (
-    <header className={`sticky top-0 z-40 flex h-16 items-center justify-between border-b border-gray-200 ${props.currentTheme.bg} px-8 backdrop-blur-md `}>
+    <header className={`sticky top-0 z-40 flex h-16 items-center justify-between border-b border-gray-200 px-8 backdrop-blur-md `}>
       {/* Left */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">
+        {/* <h1 className="text-2xl font-bold text-gray-900">
           Welcome
         </h1>
         <p className="text-sm text-gray-500">
           Explore your favorite apps
-        </p>
+        </p> */}
       </div>
 
       {/* Right */}

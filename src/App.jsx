@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useState } from "react";
-import Home from "../src/pages/Home"
+import Home from "./pages/Home"
+import  Calculator  from "./pages/Calculator";
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home theme={theme} currentTheme={currentTheme} dark={dark} setDark={setDark}/>} />
+        <Route path="/calculator" element={<Calculator theme={theme} currentTheme={currentTheme} dark={dark} setDark={setDark}/>} />
       </Routes>
     </BrowserRouter>
   )

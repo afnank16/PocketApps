@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useState } from "react";
 import Home from "./pages/Home"
 import  Calculator  from "./pages/Calculator";
+import ToDoList from "./pages/ToDoList";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home theme={theme} currentTheme={currentTheme} dark={dark} setDark={setDark}/>} />
         <Route path="/calculator" element={<Calculator theme={theme} currentTheme={currentTheme} dark={dark} setDark={setDark}/>} />
+        <Route path="/todolist" element={<ToDoList theme={theme} currentTheme={currentTheme} dark={dark} setDark={setDark}/>} />
       </Routes>
     </BrowserRouter>
   )

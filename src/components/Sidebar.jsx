@@ -13,7 +13,7 @@ import {
 const links = [
   { name: "Home", path: "/", icon: House },
   { name: "Calculator", path: "/calculator", icon: Calculator },
-  { name: "Todo", path: "/todo", icon: CheckSquare },
+  { name: "Todo", path: "/todolist", icon: CheckSquare },
   { name: "Typing Test", path: "/typing-test", icon: Keyboard },
   { name: "Stopwatch", path: "/stopwatch", icon: Timer },
 //   { name: "Notes", path: "/notes", icon: NotebookPen },
@@ -23,7 +23,7 @@ const links = [
 export default function Sidebar() {
   return (
     <aside className="fixed left-0 top-0 h-screen w-64 border-r border-gray-200 bg-white">
-      <div className="border-b p-6">
+      <div className="border-b p-4">
         <h1 className="text-2xl font-bold">PocketApps</h1>
         {/* <p className="text-sm text-gray-500">
           Everyday tools in one place

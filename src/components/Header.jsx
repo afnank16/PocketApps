@@ -1,7 +1,7 @@
-import { Bell, Moon, Search } from "lucide-react";
+import { Bell, Moon, Search, Sun } from "lucide-react";
 
 export default function Header(props) {
-  console.log(props)
+
   return (
     <header className={`sticky top-0 z-40 flex h-16 items-center justify-between border-b border-gray-200 px-8 backdrop-blur-md `}>
       {/* Left */}
@@ -32,7 +32,7 @@ export default function Header(props) {
 
         {/* Theme */}
         <button className="rounded-xl border border-gray-200 p-2 hover:bg-gray-100" onClick={() => props.setDark(!props.dark)}>
-          <Moon size={20} />
+          {props.dark? <Moon size={20} /> : <Sun size={20}/>}
         </button>
 
         {/* Notifications */}

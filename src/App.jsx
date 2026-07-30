@@ -14,6 +14,7 @@ function App() {
       text: "text-white",
       border: "border-white",
       hover: "hover:bg-slate-200 hover:text-black",
+      shadow: "shadow-lg shadow-black",
       icon: "🌛",
       title: "Night",
     },
@@ -22,6 +23,7 @@ function App() {
       text: "text-black",
       border: "border-black",
       hover: "hover:bg-slate-400 hover:text-white",
+      shadow: "shadow-lg shadow-white",
       icon: "🔆",
       title: "Day"
     },

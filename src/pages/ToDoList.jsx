@@ -42,9 +42,9 @@ function ToDoList(props) {
             <Sidebar />
             <div className="ml-64">
                 <Header theme={props.theme} currentTheme={props.currentTheme} dark={props.dark} setDark={props.setDark} />
-                <main className="p-8 flex justify-center items-center h-screen flex-col gap-4 bg-amber-50">
-                        <div className="border-2 border-gray-200 p-5 rounded-3xl overflow-y-auto max-h-[500px] bg-white shadow-lg custom-scrollbar">
-                            <h1 className="text-2xl font-bold text-gray-800 pb-4 text-center">To Do</h1>
+                <main className={`p-8 flex justify-center items-center h-screen flex-col gap-4 ${props.currentTheme.bg} ` }>
+                        <div className={`border-2 border-gray-200 p-5 rounded-3xl overflow-y-auto max-h-[500px] shadow-lg custom-scrollbar ${props.currentTheme.bg} `}>
+                            <h1 className={`text-2xl font-bold ${props.currentTheme.text} pb-4 text-center`}>To Do</h1>
 
                             {/* Input */}
                             <div className="flex gap-2 pb-4">
@@ -72,7 +72,7 @@ function ToDoList(props) {
                                 {todos.map(todo => (
                                     <li
                                         key={todo.id}
-                                        className="flex items-center justify-between bg-white border border-gray-200 rounded-xl px-4 py-3 shadow-sm"
+                                        className={`flex items-center justify-between ${props.currentTheme.bg} ${props.currentTheme.border} rounded-xl px-4 py-3 shadow-sm`}
                                     >
                                         <div className="flex items-center gap-3 overflow-hidden">
                                             <input

@@ -54,7 +54,7 @@ function ToDoList(props) {
                                     onChange={(e) => setInput(e.target.value)}
                                     onKeyDown={(e) => e.key === "Enter" && addTodo()}
                                     placeholder="Add a new task..."
-                                    className={`border border-gray-300 rounded-lg px-4 py-2 text-sm ${props.currentTheme.text} outline-none focus:border-blue-400 w-64`}
+                                    className={`border border-gray-300 rounded-lg px-4 py-2 text-sm ${props.currentTheme.text} ${props.currentTheme.bg}  outline-none focus:border-blue-400 w-64`}
                                 />
                                 <button
                                     onClick={addTodo}
@@ -83,8 +83,8 @@ function ToDoList(props) {
                                             />
                                             <span
                                                 className={`text-sm transition-all duration-300 ${todo.completed
-                                                    ? "line-through text-gray-400 opacity-60"
-                                                    : "text-gray-700"
+                                                    ? `line-through text-gray-400 opacity-60`
+                                                    : `${props.currentTheme.text}`
                                                     }`}
                                             >
                                                 {todo.text}
@@ -102,7 +102,7 @@ function ToDoList(props) {
 
                             {/* Footer count */}
                             {todos.length > 0 && (
-                                <p className="text-xs text-gray-400">
+                                <p className={`text-xs ${props.currentTheme.text}`}>
                                     {todos.filter(t => t.completed).length} of {todos.length} completed
                                 </p>
                             )}

@@ -38,8 +38,8 @@ export default function Sidebar(props) {
             className={({ isActive }) =>
               `flex items-center gap-3 rounded-lg px-4 py-3 transition ${
                 isActive
-                  ? "bg-black text-white  "
-                  : "text-gray-700 hover:bg-gray-100"
+                  ? `bg-black text-white `
+                  : ` ${props.currentTheme.hover} ${props.currentTheme.text}`
               }`
             }
           >

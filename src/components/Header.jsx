@@ -3,7 +3,7 @@ import { Bell, Moon, Search, Sun } from "lucide-react";
 export default function Header(props) {
 
   return (
-    <header className={`sticky top-0 z-40 flex h-16 items-center justify-between border-b border-gray-200 px-8 backdrop-blur-md `}>
+    <header className={`sticky top-0 z-40 flex h-16 items-center justify-between border-b border-gray-200 ${props.currentTheme.bg} px-8 backdrop-blur-md `}>
       {/* Left */}
       <div>
         {/* <h1 className="text-2xl font-bold text-gray-900">
@@ -36,7 +36,7 @@ export default function Header(props) {
         </button>
 
         {/* Notifications */}
-        <button className="relative rounded-xl border border-gray-200 p-2 hover:bg-gray-100">
+        <button className="relative rounded-xl border border-gray-200 p-2 hover:bg-gray-100 ">
           <Bell size={20} />
           <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-red-500"></span>
         </button>

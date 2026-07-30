@@ -52,7 +52,7 @@ export default function Sidebar(props) {
       <div className="absolute bottom-0 w-full border-t p-4">
         <NavLink
           to="/settings"
-          className="flex items-center gap-3 rounded-lg px-4 py-3 text-gray-700 hover:bg-gray-100"
+          className={`flex items-center gap-3 rounded-lg px-4 py-3 text-gray-700 hover:bg-gray-100 ${props.currentTheme.text} ${props.currentTheme.hover}`}
         >
           <Settings size={20} />
           Settings

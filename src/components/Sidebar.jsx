@@ -49,7 +49,7 @@ export default function Sidebar(props) {
         ))}
       </nav>
 
-      <div className="absolute bottom-0 w-full border-t p-4">
+      <div className={`absolute bottom-0 w-full border-t ${props.currentTheme.border} p-4`}>
         <NavLink
           to="/settings"
           className={`flex items-center gap-3 rounded-lg px-4 py-3 text-gray-700 hover:bg-gray-100 ${props.currentTheme.text} ${props.currentTheme.hover}`}

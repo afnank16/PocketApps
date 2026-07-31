@@ -38,7 +38,7 @@ export default function Sidebar(props) {
             className={({ isActive }) =>
               `flex items-center gap-3 rounded-lg px-4 py-3 transition ${
                 isActive
-                  ? `bg-black text-white `
+                  ? `${props.dark?"bg-slate-100 text-black":"bg-black text-white"}`
                   : ` ${props.currentTheme.hover} ${props.currentTheme.text}`
               }`
             }

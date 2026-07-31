@@ -4,7 +4,7 @@ import { useStopwatch } from 'react-timer-hook';
 import Sidebar from "../components/Sidebar"
 import Header from "../components/Header"
 
-function TypingTest() {
+function TypingTest(props) {
 
     const { milliseconds, seconds, start, pause, reset } = useStopwatch({ autoStart: false, interval: 20 })
     const [text, setText] = useState("");

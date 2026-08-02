@@ -34,7 +34,7 @@ function TypingTest(props) {
             <Sidebar theme={props.theme} currentTheme={props.currentTheme} dark={props.dark} setDark={props.setDark} />
             <div className="ml-64">
                 <Header theme={props.theme} currentTheme={props.currentTheme} dark={props.dark} setDark={props.setDark} />
-                <main className={`flex items-center justify-center p-4 font-sans ${props.currentTheme.bg}`}>
+                <main className={`flex items-center justify-center p-4 font-sans ${props.currentTheme.bg} ${props.currentTheme.text}`}>
                     <div className="w-full max-w-md rounded-2xl border border-indigo-200 p-8 shadow-2xl backdrop-blur-xl bg-slate-200">
 
                         {/* Heading */}

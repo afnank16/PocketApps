@@ -38,12 +38,12 @@ function ToDoList(props) {
     return (
 
 
-        <div className={`min-h-screen `}>
+        <div className={`min-h-screen ${props.currentTheme.bg} ${props.currentTheme.text}`}>
             <Sidebar theme={props.theme} currentTheme={props.currentTheme} dark={props.dark} setDark={props.setDark}/>
             <div className="ml-64">
                 <Header theme={props.theme} currentTheme={props.currentTheme} dark={props.dark} setDark={props.setDark} />
-                <main className={`p-8 flex justify-center items-center h-screen flex-col gap-4 ${props.currentTheme.bg} ` }>
-                        <div className={`border-2 border-gray-200 p-5 rounded-3xl overflow-y-auto max-h-[500px] shadow-lg custom-scrollbar ${props.currentTheme.bg} `}>
+                <main className={`p-8 flex justify-center items-center h-screen flex-col gap-4 ${props.currentTheme.bg} ${props.currentTheme.text}`}>
+                        <div className={`border-2 border-gray-200 p-5 rounded-3xl overflow-y-auto max-h-[500px] shadow-lg custom-scrollbar ${props.currentTheme.bg} ${props.currentTheme.text}`}>
                             <h1 className={`text-2xl font-bold ${props.currentTheme.text} pb-4 text-center`}>To Do</h1>
 
                             {/* Input */}

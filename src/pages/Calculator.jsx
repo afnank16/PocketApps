@@ -100,11 +100,11 @@ function Calculator(props) {
 
 
 
-        <div className={`min-h-screen `}>
+        <div className={`min-h-screen ${props.currentTheme.bg} ${props.currentTheme.text}`}>
             <Sidebar theme={props.theme} currentTheme={props.currentTheme} dark={props.dark} setDark={props.setDark}/>
             <div className="ml-64">
                 <Header theme={props.theme} currentTheme={props.currentTheme} dark={props.dark} setDark={props.setDark} />
-                <main className={`p-8 ${props.currentTheme.bg}`}>
+                <main className={`p-8 ${props.currentTheme.bg} ${props.currentTheme.text}`}>
                     
                         <div className={`${props.currentTheme.text} mt-10 relative`}>
                             <h1 className="mb-2">Calculator</h1>

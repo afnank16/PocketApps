@@ -26,7 +26,7 @@ export default function Header(props) {
           <input
             type="text"
             placeholder="Search apps..."
-            className="w-72 rounded-xl border border-gray-200 bg-gray-50 py-2 pl-10 pr-4 outline-none transition focus:border-black focus:bg-white"
+            className={`w-72 rounded-xl  ${props.currentTheme.border} bg-gray-50 py-2 pl-10 pr-4 outline-none transition focus:border-black focus:bg-white`}
           />
         </div>
 
@@ -42,7 +42,7 @@ export default function Header(props) {
         </button>
 
         {/* Avatar */}
-        <button className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-sm font-semibold text-white">
+        <button className={`flex h-10 w-10 items-center justify-center rounded-full ${props.currentTheme.bg} text-sm font-semibold ${props.currentTheme.text} border border-gray-200 hover:bg-gray-100`}>
           A
         </button>
       </div>

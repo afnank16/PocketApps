@@ -26,7 +26,7 @@ export default function Header(props) {
           <input
             type="text"
             placeholder="Search apps..."
-            className={`w-72 rounded-xl  ${props.currentTheme.border} bg-gray-50 py-2 pl-10 pr-4 outline-none transition focus:border-black focus:bg-white`}
+            className={`w-72 rounded-xl  ${props.currentTheme.border} ${props.currentTheme.text}  bg-gray-50 py-2 pl-10 pr-4 outline-none transition focus:border-black focus:bg-white`}
           />
         </div>
 

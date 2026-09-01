@@ -15,6 +15,7 @@ const links = [
   { name: "Calculator", path: "/calculator", icon: Calculator },
   { name: "Todo", path: "/todolist", icon: CheckSquare },
   { name: "Typing Test", path: "/typing_test", icon: Keyboard },
+  { name: "XO Game", path: "/xo_game", icon: CheckSquare },
 
 //   { name: "Notes", path: "/notes", icon: NotebookPen },
 //   { name: "Password Generator", path: "/password-generator", icon: LockKeyhole },

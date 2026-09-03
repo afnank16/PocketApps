@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import  Calculator  from "./pages/Calculator";
 import ToDoList from "./pages/ToDoList";
 import TypingTest from "./pages/TypingTest";
+import TicTacToe from "./pages/TicTacToe";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
         <Route path="/calculator" element={<Calculator theme={theme} currentTheme={currentTheme} dark={dark} setDark={setDark}/>} />
         <Route path="/todolist" element={<ToDoList theme={theme} currentTheme={currentTheme} dark={dark} setDark={setDark}/>} />
         <Route path="/typing_test" element={<TypingTest theme={theme} currentTheme={currentTheme} dark={dark} setDark={setDark}/>} />
+        <Route path="/tictactoe" element={<TicTacToe theme={theme} currentTheme={currentTheme} dark={dark} setDark={setDark}/>} />
       </Routes>
     </BrowserRouter>
   )

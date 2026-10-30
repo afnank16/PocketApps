@@ -62,7 +62,7 @@ function TypingTest(props) {
 
                         {/* Timer Display & remove the last digit from milliseconds*/}
                         <div className="flex flex-col items-center justify-center rounded-xl p-6 border border-slate-300">
-                            <p className="font-mono text-4xl font-extrabold tracking-tight text-indigo-400">
+                            <p className="font-mono text-4xl font-extrabold tracking-tight text-indigo-400 w-20">
                                 {seconds}<span className="text-2xl text-slate-500">.</span>{String(milliseconds).slice(0, -1)}
                                 <span className="ml-2 text-sm font-medium tracking-normal text-slate-400">s</span>
                             </p>

@@ -1,50 +1,102 @@
-import { Bell, Moon, Search, Sun } from "lucide-react";
+import { Bell, Moon, Search, Sun, Command } from "lucide-react";
 
 export default function Header(props) {
+  const isDark = props.dark;
 
   return (
-    <header className={`sticky top-0 z-40 flex h-16 items-center justify-between border-b border-gray-200 ${props.currentTheme.bg} px-8 backdrop-blur-md `}>
+    <header
+      className={`sticky top-0 z-40 flex h-[72px] items-center justify-between border-b px-6 md:px-8 backdrop-blur-xl transition-colors duration-300 ${
+        isDark
+          ? "border-white/[0.07] bg-[#0b1020]/80 text-slate-100"
+          : "border-slate-200/80 bg-white/80 text-slate-800"
+      }`}
+    >
       {/* Left */}
-      <div>
-        {/* <h1 className="text-2xl font-bold text-gray-900">
-          Welcome
-        </h1>
-        <p className="text-sm text-gray-500">
-          Explore your favorite apps
-        </p> */}
+      <div className="flex items-center gap-3">
+        <div>
+          <h2 className="text-sm font-bold tracking-tight">
+            My Workspace
+          </h2>
+          <p
+            className={`mt-0.5 text-xs ${
+              isDark ? "text-slate-500" : "text-slate-400"
+            }`}
+          >
+            Your personal digital space
+          </p>
+        </div>
       </div>
 
       {/* Right */}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3">
+
         {/* Search */}
-        <div className="relative hidden md:block">
+        <div className="relative hidden sm:block">
           <Search
-            size={18}
-            className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+            size={17}
+            className={`absolute left-3.5 top-1/2 -translate-y-1/2 ${
+              isDark ? "text-slate-500" : "text-slate-400"
+            }`}
           />
 
           <input
             type="text"
-            placeholder="Search apps..."
-            className={`w-72 rounded-xl  ${props.currentTheme.border} ${props.currentTheme.text}  bg-gray-50 py-2 pl-10 pr-4 outline-none transition focus:border-black focus:bg-white`}
+            placeholder="Search your tools..."
+            className={`w-52 rounded-xl border py-2.5 pl-10 pr-12 text-sm outline-none transition-all duration-200 md:w-64 ${
+              isDark
+                ? "border-white/10 bg-white/[0.04] text-white placeholder:text-slate-500 focus:border-indigo-500/60 focus:bg-white/[0.07]"
+                : "border-slate-200 bg-slate-50 text-slate-800 placeholder:text-slate-400 focus:border-indigo-400 focus:bg-white"
+            }`}
           />
+
+          <div
+            className={`absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1 rounded-md border px-1.5 py-0.5 ${
+              isDark
+                ? "border-white/10 text-slate-500"
+                : "border-slate-200 text-slate-400"
+            }`}
+          >
+            <Command size={11} />
+            <span className="text-[10px]">K</span>
+          </div>
         </div>
 
-        {/* Theme */}
-        <button className="rounded-xl border border-gray-200 p-2 hover:bg-gray-100" onClick={() => props.setDark(!props.dark)}>
-          {props.dark? <Moon size={20} /> : <Sun size={20}/>}
+        {/* Theme Toggle */}
+        <button
+          onClick={() => props.setDark(!props.dark)}
+          title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+          aria-label="Toggle theme"
+          className={`flex h-10 w-10 items-center justify-center rounded-xl border transition-all duration-200 hover:-translate-y-0.5 ${
+            isDark
+              ? "border-white/10 bg-white/[0.04] text-amber-400 hover:bg-white/10"
+              : "border-slate-200 bg-white text-indigo-600 hover:bg-indigo-50"
+          }`}
+        >
+          {isDark ? <Sun size={19} /> : <Moon size={19} />}
         </button>
 
         {/* Notifications */}
-        <button className="relative rounded-xl border border-gray-200 p-2 hover:bg-gray-100 ">
-          <Bell size={20} />
-          <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-red-500"></span>
+        <button
+          aria-label="Notifications"
+          className={`relative flex h-10 w-10 items-center justify-center rounded-xl border transition-all duration-200 hover:-translate-y-0.5 ${
+            isDark
+              ? "border-white/10 bg-white/[0.04] text-slate-300 hover:bg-white/10"
+              : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+          }`}
+        >
+          <Bell size={19} />
+
+          <span className="absolute right-2 top-2 h-2 w-2 rounded-full border-2 border-white bg-rose-500 dark:border-[#0b1020]" />
         </button>
 
         {/* Avatar */}
-        <button className={`flex h-10 w-10 items-center justify-center rounded-full ${props.currentTheme.bg} text-sm font-semibold ${props.currentTheme.text} border border-gray-200 hover:bg-gray-100`}>
+        <button
+          title="My Profile"
+          className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-sm font-bold text-white shadow-md shadow-indigo-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+        >
           A
         </button>
+
       </div>
     </header>
   );

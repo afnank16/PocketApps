@@ -7,14 +7,41 @@ function Dictionary(props) {
     const [word, setWord] = useState("");
     const [meaning, setMeaning] = useState("");
     const [error, setError] = useState("");
-
-
+    const isDark = Boolean(props.dark);
+    const cardClass = isDark
+        ? "border-slate-700 bg-slate-900 shadow-xl shadow-black/20"
+        : "border-gray-200 bg-white shadow-xl shadow-gray-200/70";
+    const labelClass = isDark ? "text-slate-300" : "text-gray-700";
+    const inputClass = isDark
+        ? "border-slate-700 bg-slate-800 text-slate-100 placeholder:text-slate-500 focus:border-rose-500 focus:bg-slate-800 focus:ring-rose-900/50"
+        : "border-gray-200 bg-gray-50 text-gray-800 placeholder:text-gray-400 focus:border-rose-500 focus:bg-white focus:ring-rose-100";
+    const definitionClass = isDark
+        ? "border-slate-700 bg-slate-800"
+        : "border-gray-100 bg-gray-50";
 
     async function CallApi() {
+        const searchWord = word.trim();
+        if (!searchWord) {
+            setMeaning("");
+            setError("Please enter a word to search.");
+            return;
+        }
+
         try {
-            const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
-            const data = await response.json()
-            setMeaning(data[0].meanings[0].definitions[0].definition)
+            setError("");
+            setMeaning("");
+            const response = await fetch(
+                `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(searchWord)}`
+            );
+            const data = await response.json();
+            const definition = data[0]?.meanings?.[0]?.definitions?.[0]?.definition;
+
+            if (!response.ok || !definition) {
+                setError(data.title || "No definition was found for that word.");
+                return;
+            }
+
+            setMeaning(definition);
         }
         catch (err) {
             console.log("something went wrong", err)
@@ -28,11 +55,10 @@ function Dictionary(props) {
             <Sidebar theme={props.theme} currentTheme={props.currentTheme} dark={props.dark} setDark={props.setDark} />
             <div className="ml-64">
                 <Header theme={props.theme} currentTheme={props.currentTheme} dark={props.dark} setDark={props.setDark} />
-                <main className={`p-8 ${props.currentTheme.bg} ${props.currentTheme.text}`}></main>
-                <div className={`min-h-screen flex flex-col items-center justify-center px-4 py-10 ${props.currentTheme.bg} ${props.currentTheme.text}`}>
+                <main className={`min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center px-4 py-10 ${props.currentTheme.bg} ${props.currentTheme.text}`}>
 
                     {/* Main Card */}
-                    <div className={`w-full max-w-lg overflow-hidden rounded-3xl border ${props.currentTheme.text} ${props.currentTheme.bg} ${props.currentTheme.text}`}>
+                    <div className={`w-full max-w-lg overflow-hidden rounded-3xl border ${cardClass}`}>
 
                         {/* Header */}
                         <div className="bg-rose-600 px-8 py-6 text-white">
@@ -49,7 +75,7 @@ function Dictionary(props) {
 
                             <label
                                 htmlFor="word"
-                                className="mb-2 block text-sm font-semibold text-gray-700"
+                                className={`mb-2 block text-sm font-semibold ${labelClass}`}
                             >
                                 Search for a word
                             </label>
@@ -57,7 +83,7 @@ function Dictionary(props) {
                             <input
                                 id="word"
                                 value={word}
-                                className={`w-full rounded-xl border  bg-gray-50 px-4 py-3 text-gray-800 outline-none transition placeholder:text-gray-400 focus:border-rose-500 focus:bg-white focus:ring-4 focus:ring-rose-100 ${props.currentTheme.text} ${props.currentTheme.border} ${props.currentTheme.bg} ${props.currentTheme.text}`}
+                                className={`w-full rounded-xl border px-4 py-3 outline-none transition focus:ring-4 ${inputClass}`}
                                 placeholder="e.g. beautiful, wisdom, courage..."
                                 type="text"
                                 onChange={(e) => setWord(e.target.value)}
@@ -68,21 +94,21 @@ function Dictionary(props) {
 
                             <button
                                 onClick={CallApi}
-                                className="mt-4 w-full rounded-xl bg-rose-600 py-3 font-semibold text-white shadow-md shadow-rose-200 transition duration-200 hover:-translate-y-0.5 hover:bg-rose-700 hover:shadow-lg active:translate-y-0 active:scale-[0.98]"
+                                className="mt-4 w-full rounded-xl bg-rose-600 py-3 font-semibold text-white shadow-md transition duration-200 hover:-translate-y-0.5 hover:bg-rose-700 hover:shadow-lg active:translate-y-0 active:scale-[0.98]"
                             >
                                 Search Word →
                             </button>
 
                             {/* Meaning Section */}
                             <div className="mt-8">
-                                <h2 className="mb-3 text-sm font-bold uppercase tracking-wider text-gray-400">
+                                <h2 className={`mb-3 text-sm font-bold uppercase tracking-wider ${isDark ? "text-slate-400" : "text-gray-400"}`}>
                                     Definition
                                 </h2>
 
-                                <div className="min-h-24 rounded-2xl border border-gray-100 bg-gray-50 p-5">
+                                <div className={`min-h-24 rounded-2xl border p-5 ${definitionClass}`}>
 
                                     {meaning ? (
-                                        <p className="leading-7 text-gray-700">
+                                        <p className={`leading-7 ${isDark ? "text-slate-200" : "text-gray-700"}`}>
                                             {meaning}
                                         </p>
                                     ) : error ? (
@@ -90,7 +116,7 @@ function Dictionary(props) {
                                             {error}
                                         </p>
                                     ) : (
-                                        <p className="text-sm leading-6 text-gray-400">
+                                        <p className={`text-sm leading-6 ${isDark ? "text-slate-400" : "text-gray-400"}`}>
                                             Your word's meaning will appear here. Start by
                                             searching for a word above.
                                         </p>
@@ -103,19 +129,19 @@ function Dictionary(props) {
                     </div>
 
                     {/* Footer */}
-                    <footer className="mt-6 text-sm text-gray-400">
+                    <footer className={`mt-6 text-sm ${isDark ? "text-slate-400" : "text-gray-400"}`}>
                         Powered by{" "}
                         <a
                             href="https://dictionaryapi.dev/"
                             target="_blank"
                             rel="noreferrer"
-                            className="font-medium text-rose-600 transition hover:text-rose-800 hover:underline"
+                            className={`font-medium transition hover:underline ${isDark ? "text-rose-400 hover:text-rose-300" : "text-rose-600 hover:text-rose-800"}`}
                         >
                             Dictionary API
                         </a>
                     </footer>
 
-                </div>
+                </main>
             </div>
         </div>
     );

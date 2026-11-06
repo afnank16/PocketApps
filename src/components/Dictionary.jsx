@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-function TapF() {
+function Dictionary() {
 
     const [word, setWord] = useState("");
     const [meaning, setMeaning] = useState("");
@@ -112,4 +112,4 @@ function TapF() {
     );
 
 }
-export default TapF;
+export default Dictionary;

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useStopwatch } from 'react-timer-hook';
 
 
-function DisplayData() {
+function TypeTest() {
 
     const { milliseconds, seconds, start, pause, reset } = useStopwatch({ autoStart: false, interval: 20 })
     const [text, setText] = useState("");
@@ -75,4 +75,4 @@ function DisplayData() {
     )
 }
 
-export default DisplayData
+export default TypeTest

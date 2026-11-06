@@ -57,7 +57,7 @@ function Dictionary(props) {
                             <input
                                 id="word"
                                 value={word}
-                                className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 outline-none transition placeholder:text-gray-400 focus:border-rose-500 focus:bg-white focus:ring-4 focus:ring-rose-100"
+                                className={`w-full rounded-xl border  bg-gray-50 px-4 py-3 text-gray-800 outline-none transition placeholder:text-gray-400 focus:border-rose-500 focus:bg-white focus:ring-4 focus:ring-rose-100 ${props.currentTheme.text} ${props.currentTheme.border} ${props.currentTheme.bg} ${props.currentTheme.text}`}
                                 placeholder="e.g. beautiful, wisdom, courage..."
                                 type="text"
                                 onChange={(e) => setWord(e.target.value)}

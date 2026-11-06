@@ -5,7 +5,7 @@ import  Calculator  from "./pages/Calculator";
 import ToDoList from "./pages/ToDoList";
 import TypingTest from "./pages/TypingTest";
 import TicTacToe from "./pages/TicTacToe";
-import Dictionary from "./components/Dictionary";
+import Dictionary from "./pages/Dictionary";
 
 function App() {
 

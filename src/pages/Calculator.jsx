@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
-import { Delete, RotateCcw } from "lucide-react";
+import { Delete, RotateCcw, Calculator as CalculatorIcon } from "lucide-react";
 
 const OPERATOR_END = /[+\-*/]$/;
 
@@ -285,6 +285,25 @@ function Calculator(props) {
                 />
 
                 <main className="flex min-h-[calc(100vh-72px)] flex-col items-center justify-center p-6 md:p-10">
+
+                    {/* Page Heading */}
+                    <div className="mb-8 w-full max-w-md">
+                        <div className="flex items-center gap-3">
+                            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-500/10 text-indigo-500">
+                                <CalculatorIcon size={25} />
+                            </div>
+
+                            <div>
+                                <h1 className="text-2xl font-bold tracking-tight">
+                                    Calculator
+                                </h1>
+                                <p className={`mt-1 text-sm ${isDark ? "text-slate-500" : "text-slate-400"
+                                    }`}>
+                                    Simple calculations, made beautiful.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
                     {/* Calculator Body */}
                     <div

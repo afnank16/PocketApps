@@ -10,6 +10,7 @@ function Home(props) {
       color: "bg-blue-500/10",
       accent: "text-blue-500",
       tag: "Learning",
+      path: "/dictionary"
     },
     {
       name: "Typing Test",

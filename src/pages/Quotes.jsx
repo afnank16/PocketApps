@@ -34,24 +34,6 @@ function Quotes() {
                 {/* Search Section */}
                 <div className="p-8">
 
-                    {/* <label
-                        htmlFor="word"
-                        className="mb-2 block text-sm font-semibold text-gray-700"
-                    >
-                        Search for a word
-                    </label>
-
-                    <input
-                        id="word"
-                        value={word}
-                        className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-gray-800 outline-none transition placeholder:text-gray-400 focus:border-violet-500 focus:bg-white focus:ring-4 focus:ring-violet-100"
-                        placeholder="e.g. beautiful, wisdom, courage..."
-                        type="text"
-                        onChange={(e) => setWord(e.target.value)}
-                        onKeyDown={(e) => {
-                            if (e.key === "Enter") CallApi(); 
-                        }}
-                    />*/}
 
                     <button
                         onClick={GetQuotes}

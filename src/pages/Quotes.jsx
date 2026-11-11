@@ -33,8 +33,6 @@ function Quotes() {
 
                 {/* Search Section */}
                 <div className="p-8">
-
-
                     <button
                         onClick={GetQuotes}
                         className="mt-4 w-full rounded-xl bg-violet-600 py-3 font-semibold text-white shadow-md shadow-violet-200 transition duration-200 hover:-translate-y-0.5 hover:bg-violet-700 hover:shadow-lg active:translate-y-0 active:scale-[0.98]"

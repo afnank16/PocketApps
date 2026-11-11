@@ -148,6 +148,7 @@ function Home(props) {
 
               {tools.map((tool, index) => (
                 <div
+                  onClick={()=>{navigate(tool.path)}}
                   key={index}
                   className={`group relative cursor-pointer overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
                     isDark
@@ -158,7 +159,7 @@ function Home(props) {
 
                   <div className="flex items-start justify-between">
                     <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${tool.color} text-2xl transition-transform duration-300 group-hover:scale-110`}
-                    onClick={()=>{navigate(tool.path)}}>
+                    >
                       {tool.icon}
                     </div>
 

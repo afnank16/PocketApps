@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function Home(props) {
 
   const navigate = useNavigate();
-  
+
   const tools = [
     {
       name: "Free Dictionary",
@@ -14,7 +14,7 @@ function Home(props) {
       color: "bg-blue-500/10",
       accent: "text-blue-500",
       tag: "Learning",
-      path: "/dictionary"
+      path: "/dictionary",
     },
     {
       name: "Typing Test",
@@ -143,7 +143,8 @@ function Home(props) {
             </div>
 
             {/* Uniform Grid */}
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3" 
+            >
 
               {tools.map((tool, index) => (
                 <div
@@ -156,7 +157,8 @@ function Home(props) {
                 >
 
                   <div className="flex items-start justify-between">
-                    <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${tool.color} text-2xl transition-transform duration-300 group-hover:scale-110`}>
+                    <div className={`flex h-14 w-14 items-center justify-center rounded-2xl ${tool.color} text-2xl transition-transform duration-300 group-hover:scale-110`}
+                    onClick={()=>{navigate(tool.path)}}>
                       {tool.icon}
                     </div>
 

@@ -23,6 +23,7 @@ function Home(props) {
       color: "bg-purple-500/10",
       accent: "text-purple-500",
       tag: "Productivity",
+      path:"typing_test"
     },
     {
       name: "XO Game",

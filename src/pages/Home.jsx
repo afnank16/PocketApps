@@ -32,6 +32,7 @@ function Home(props) {
       color: "bg-pink-500/10",
       accent: "text-pink-500",
       tag: "Entertainment",
+      path:"tictactoe"
     },
     {
       name: "Calculator",

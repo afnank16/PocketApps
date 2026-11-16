@@ -41,6 +41,7 @@ function Home(props) {
       color: "bg-amber-500/10",
       accent: "text-amber-500",
       tag: "Utility",
+      path:"/calculator"
     },
     {
       name: "Todo List",

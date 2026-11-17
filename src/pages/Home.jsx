@@ -50,6 +50,7 @@ function Home(props) {
       color: "bg-emerald-500/10",
       accent: "text-emerald-500",
       tag: "Productivity",
+      path:"/todolist"
     },
   ];
 

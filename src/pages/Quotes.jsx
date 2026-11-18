@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 function Quotes() {
    
-    const [quotes, setQuotes] = useState([])
+    const [quotes, setQuotes] = useState([]);
 
     async function GetQuotes() {
         try {
